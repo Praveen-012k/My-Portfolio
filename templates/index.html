@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <title>Praveen's | Portfolio</title>
+</head>
+
+<body>
+  <header id="home">
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">         
+        <a class="navbar-brand" href="#">Praveen Kumar's portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="px-4 py-5 my-5 text-center">
+  
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+        <h1 class="display-4 fw-bold text-body-emphasis" style="color:#4eb00d;">{{message}}</h1>
+        {% endfor %}
+      {%else%}
+        <h1 class="display-4 fw-bold text-body-emphasis">Praveen Kumar M</h1>
+    {%endif%}
+    {% endwith %}
+    <h2 class="display-5 fw-normal text-muted"> Python Developer | Flask & Web Development</h2>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">I build backend web applications with Python and Flask — handling user authentication,
+        database relationships, and deployment from scratch. I'm currently expanding into data analysis with pandas and
+        visualization tools as I work toward a full-time role in IT.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"><a href="#projects"><button type="button"
+            class="btn btn-primary btn-lg px-4 gap-3">Projects</button></a> <a href="{{ url_for('static',filename='Praveen_Resume.pdf') }}"><button type="button"
+          class="btn btn-outline-secondary btn-lg px-4">Resume</button> </a> </div>
+    </div>
+  </div>
+  <section id="projects">
+    <div class="container">
+      <h2 class="text-center mb-5">Projects</h2>
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="row">
+
+  <div class="col-md-4 d-flex">
+    <div class="card h-100 d-flex flex-column">
+      <div class="card-body d-flex flex-column">
+        <h3>Flask Blog Application</h3>
+        <p>A multi-user blog platform with secure authentication and admin-only permissions. Built with one-to-many database relationships between users, posts, and comments, using WTForms for input handling and CKEditor for rich text. Deployed live with PostgreSQL on Render. User profile images are handled automatically through Flask-Gravatar, while session-based login ensures only authenticated users can comment or interact with posts. Configuration secrets like database URLs and API keys are kept secure using environment variables, following production-ready deployment practices </p>
+        <p>  
+          <span class="badge bg-secondary">Flask</span>
+          <span class="badge bg-secondary">Python</span>
+          <span class="badge bg-secondary">SQLAlchemy</span>
+          <span class="badge bg-secondary">PostgreSQL</span>
+          <span class="badge bg-secondary">Flask-Login</span>
+          <span class="badge bg-secondary">WTForms</span>
+        </p>
+        <a class="btn btn-secondary mt-auto" href="https://github.com/Praveen-012k/main.py" role="button">Github</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 d-flex">
+    <div class="card h-100 d-flex flex-column">
+      <div class="card-body d-flex flex-column">
+        <h3>Movie Budget Analysis</h3>
+        <p>An exploratory data analysis and linear regression project examining the relationship between film production budgets and worldwide box office revenue. Found that while the average film costs ~$31M and returns roughly 3x that, the regression revealed budget is actually a weak predictor of revenue for older films — many low-budget films significantly outperformed high-budget ones. For modern films, the model fits much better, predicting a $150M budget film would earn just under $500M. Visualized using Seaborn scatter and bubble charts, with regression modeling via scikit-learn.</p>
+        <p>
+          <span class="badge bg-secondary">Python</span>
+          <span class="badge bg-secondary">Pandas</span>
+          <span class="badge bg-secondary">Seaborn</span>
+          <span class="badge bg-secondary">Scikit-learn</span>
+          <span class="badge bg-secondary">Linear Regression</span>
+        </p>
+        <a class="btn btn-secondary mt-auto" href="https://github.com/Praveen-012k/movie-budget-analysis" role="button">Github</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 d-flex">
+    <div class="card h-100 d-flex flex-column">
+      <div class="card-body d-flex flex-column">
+        <h3>Flight Deal Finder</h3>
+        <p>An automated tool that monitors flight prices from London to multiple destinations and sends real-time SMS alerts when a cheap fare is found. Pulls destination and price data from Google Sheets, resolves airport codes, searches live flight prices, and triggers Twilio SMS notifications — orchestrating four separate APIs into one automated pipeline. Sensitive credentials like API keys are stored securely using python-dotenv, keeping them out of source control. The script runs on a schedule, continuously checking for new deals without manual intervention, making price monitoring fully hands-off once configured.</p>
+        <p>
+          <span class="badge bg-secondary">Python</span>
+          <span class="badge bg-secondary">SerpAPI</span>
+          <span class="badge bg-secondary">Sheety API</span>
+          <span class="badge bg-secondary">Airlabs API</span>
+          <span class="badge bg-secondary">Twilio</span>
+        </p>
+        <a class="btn btn-secondary mt-auto" href="https://github.com/Praveen-012k/flight-deal-finder" role="button">Github</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+    
+    <hr>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container py-5">
+      <h2 class="text-center mb-5">About Me</h2>
+      <div class="row align-items-center">
+        <div class="col">
+          <p class="lead">
+            I'm a self-taught Python developer with a strong focus on backend development. My journey started with the
+            fundamentals — logic, functions, clean code — and grew into building full applications with Flask, handling
+            everything from user authentication to database design and live deployment. I'm currently expanding into
+            data analysis, working with pandas and visualization tools to turn raw data into clear insights. What drives
+            me is the process of taking an idea and building it into something that actually works end-to-end — I enjoy
+            the problem-solving as much as the final result. I'm actively looking for opportunities to bring that same
+            focus and consistency to a development team.
+          </p>
+        </div>
+
+        <div class="col-md-auto d-none d-md-flex justify-content-center">
+          <div class="vr text-primary" style="opacity: 1; width: 2px; height: 500px;"></div>
+        </div>
+
+        <div class="col">
+          <h3>Languages</h3>
+          <p>
+            <span class="badge bg-secondary">Python</span>
+            <span class="badge bg-secondary">SQL (basic)</span>
+          </p>
+
+          <h3>Frameworks/Libraries</h3>
+          <p>
+            <span class="badge bg-secondary">Flask</span>
+            <span class="badge bg-secondary">Flask-SQLAlchemy</span>
+            <span class="badge bg-secondary">Flask-Login</span>
+            <span class="badge bg-secondary">Flask-WTF</span>
+            <span class="badge bg-secondary">Flask-Gravatar</span>
+            <span class="badge bg-secondary">Pandas</span>
+            <span class="badge bg-secondary">Matplotlib</span>
+            <span class="badge bg-secondary">Plotly</span>
+          </p>
+
+          <h3>Tools & Platforms</h3>
+          <p>
+            <span class="badge bg-secondary">Git</span>
+            <span class="badge bg-secondary">GitHub</span>
+            <span class="badge bg-secondary">PyCharm</span>
+            <span class="badge bg-secondary">Render</span>
+            <span class="badge bg-secondary">PostgreSQL</span>
+            <span class="badge bg-secondary">Postman</span>
+            <span class="badge bg-secondary">Jupyter/Colab</span>
+          </p>
+
+          <h3>Web Scraping</h3>
+          <p>
+            <span class="badge bg-secondary">BeautifulSoup</span>
+            <span class="badge bg-secondary">Selenium</span>
+          </p>
+
+          <h3>APIs & Integrations</h3>
+          <p>
+            <span class="badge bg-secondary">REST APIs</span>
+            <span class="badge bg-secondary">Sheety API</span>
+            <span class="badge bg-secondary">Twilio</span>
+            <span class="badge bg-secondary">SerpAPI</span>
+            <span class="badge bg-secondary">SMTP</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  
+  </section> 
+    <hr>
+
+  <section id="contact">
+    <div class="container py-5">
+      <h2 class="text-center mb-5">Contact</h2>
+      <div class="row align-items-center">
+
+        <div class="col">
+          <form action="/submit" method="POST">
+
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Your name" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your message"
+                required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+
+          </form>
+        </div>
+
+
+        <div class="col-md-auto d-none d-md-flex justify-content-center">
+          <div class="vr text-primary" style="opacity: 1; width: 2px; height: 400px;"></div>
+        </div>
+
+
+
+        <div class="col">
+          <h3>Other ways to reach me</h3>
+          <p>Email: <a href="praveenbcom48@gmail.com">praveenbcom48@gmail.com</a></p>
+          <p>GitHub: <a href="https://github.com/Praveen-012k" target="_blank">github.com/Praveen-012k</a></p>
+          <p>LinkedIn: <a href="linkedin.com/in/praveen-kumar-m-31845124b" target="_blank">linkedin.com/in/Praveen Kumar
+              M</a></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#home" class="nav-link px-2 text-body-secondary">Home</a></li>
+      <li class="nav-item"><a href="#projects" class="nav-link px-2 text-body-secondary">Projects</a></li>
+      <li class="nav-item"><a href="#about" class="nav-link px-2 text-body-secondary">About</a></li>
+      <li class="nav-item"><a href="#contact" class="nav-link px-2 text-body-secondary">Contact</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">© 2026 Praveen Kumar M</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
