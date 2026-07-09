@@ -49,7 +49,7 @@
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for message in messages %}
-        <h1 class="display-4 fw-bold text-body-emphasis" style="color:#4eb00d;">{{message}}</h1>
+        <h1 class="display-4 fw-bold text-body-emphasis">{{message}}</h1>
         {% endfor %}
       {%else%}
         <h1 class="display-4 fw-bold text-body-emphasis">Praveen Kumar M</h1>
@@ -61,8 +61,7 @@
         database relationships, and deployment from scratch. I'm currently expanding into data analysis with pandas and
         visualization tools as I work toward a full-time role in IT.</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"><a href="#projects"><button type="button"
-            class="btn btn-primary btn-lg px-4 gap-3">Projects</button></a> <a href="{{ url_for('static',filename='Praveen_Resume.pdf') }}"><button type="button"
-          class="btn btn-outline-secondary btn-lg px-4">Resume</button> </a> </div>
+            class="btn btn-primary btn-lg px-4 gap-3">Projects</button></a> <a href="{{ url_for('static', filename='Praveen_Resume.pdf') }}" class="btn btn-outline-secondary btn-lg px-4">Resume</a>
     </div>
   </div>
   <section id="projects">
@@ -85,7 +84,7 @@
           <span class="badge bg-secondary">Flask-Login</span>
           <span class="badge bg-secondary">WTForms</span>
         </p>
-        <a class="btn btn-secondary mt-auto" href="https://github.com/Praveen-012k/main.py" role="button">Github</a>
+        <a class="btn btn-secondary mt-auto" href="https://blogs-v6en.onrender.com" role="button">live demo</a>
       </div>
     </div>
   </div>
