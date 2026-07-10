@@ -30,15 +30,23 @@ def submit():
         email = request.form.get("email")
         message = request.form.get("message")
         try:
-            with SMTP("smtp.gmail.com",port=587) as connection:
-                connection.starttls()
-                connection.login(sender_email,password)
-                connection.sendmail(from_addr=sender_email,
-                                    to_addrs=my_email
-                                    ,msg=f"Subject:From portfolio contacts\n\n Name : {name}\n"
-                                         f"Email : {email}\n"
-                                         f"Message : {message}")
+            print("1")
 
+            with SMTP("smtp.gmail.com", port=587, timeout=10) as connection:
+                print("2")
+                connection.starttls()
+                print("3")
+                connection.login(sender_email, password)
+                print("4")
+                connection.sendmail(
+                    from_addr=sender_email,
+                    to_addrs=my_email,
+                    msg=f"Subject:From portfolio contacts\n\n"
+                        f"Name: {name}\n"
+                        f"Email: {email}\n"
+                        f"Message: {message}"
+                )
+                print("5")
 
                 flash("Mail sent Successfully")
 
