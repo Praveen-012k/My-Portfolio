@@ -10,7 +10,7 @@ load_dotenv()
 
 password = os.environ.get("PASSWORD")
 my_email = os.environ.get("MY_EMAIL")
-sender_email = os.environ.get("sending_email")
+sender_email = os.environ.get("SENDING_EMAIL")
 
 app = Flask(__name__)
 
